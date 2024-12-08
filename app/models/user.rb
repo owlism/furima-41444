@@ -17,5 +17,4 @@ class User < ApplicationRecord
     validates :nickname
     validates :birth_date
   end
-  has_many :items
 end
