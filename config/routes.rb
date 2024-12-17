@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root to:'items#index'
   resources :items, only:[:index,:new,:create]
-  
+  resources :buys, only: :index
   # Defines the root path route ("/")
   # root "articles#index"
 end
