@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new,:create,:edit,:update]
+  before_action :authenticate_user!, only: [:new,:create,:edit,:update,:destroy]
   before_action :set_items, only: [:edit,:show, :update,:destroy]
   before_action :correct_user, only: [:edit, :update,:destroy]
 
@@ -9,10 +9,13 @@ class ItemsController < ApplicationController
   def new
     @item =Item.new
   end
+
   def show
   end
+
   def edit
   end
+
   def update
     if @items.update(item_params)
      redirect_to item_path(@items.id)
