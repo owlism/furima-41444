@@ -1,6 +1,6 @@
 class BuysController < ApplicationController
+  before_action :authenticate_user!, only: [:index,:new,:create]
   before_action :set_items, only: [:index,:create]
-  before_action :move_to_index, only:[:index]
   before_action :prevent_url, only: [:index, :create]
 
   def index
@@ -49,11 +49,5 @@ class BuysController < ApplicationController
     if @items.user_id == current_user.id || @items.buy != nil
       redirect_to root_path
      end
-  end
-
-  def move_to_index
-   unless user_signed_in?
-    redirect_to root_path
-   end
   end
 end
